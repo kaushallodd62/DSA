@@ -1,0 +1,25 @@
+ - a&b gives you 1 for all the bits where the corresponding bits of a and b are set.
+ - if a&b == 0, then no corresponding bits are set.
+ - odd numbers always has LSB == 1, even numbers always has LSB == 0.
+ - a&1 will give 1 for odd numbers and 0 for even numbers.
+ - a|b == a^b if a&b == 0
+ - a|b = a^b + a&b
+ - a+b = a|b (or a^b) when a&b == 0
+ - a+b = a|b + a&b
+ - a+b = a^b + (a&b << 1)
+ - b^b == 0
+ - (a^b)^b = a^(b^b) = a
+ - bit ^ 1 toggles the bit and bit ^ 0 remains bit unchanged.
+ - effect of even number of occurences of a number on accumulative XOR is nullified
+ - ~ (not operator) returns one's complement of a number. If the number is a signed int, it will reverse the MSB and give you a negative number. (remember negative number notation in binary using 2s compliment), else if number is unsigned int, it will give you a really big number.
+ - ~a -> one's complement (same as -a - 1)
+ - ~a+1 -> two's complement (same as -a)
+ - ~X + 1 (-X) keeps all the bits in X unchanged from LSB upto the lowest set bit (inclusive). compliments all bits to the left
+ - (X-1) inverts all the bits in X from LSB upto the lowest set bit (inclusive). keeps all bits to the left unchanged.
+ - Therefore, -X = ~(X-1).
+ 
+ - Four important builtin functions of gcc compiler.
+ - __builtin_popcount(x) counts the number of set bits in x. __builtin_popcountl(x) and __builtin_popcountll(x) can be used for long and long long data types.
+ - __builtin_parity(x) checks the parity of a number. return true is the number has odd parity else false. Parity refers to whether it contains an odd or even number of set bits in the number. Similarly, you can use __builtin_parityl(x) and __builtin_parityll(x).
+ - __builtin_ctz(x) returns the count of trailing zeros of the given number. Similarly, you can use __builtin_ctzl(x) and __builtin_ctzll(x).
+ - __builtin_clz(x) returns the count of leading zeros of the given number. Similarly, you can use __builtin_clzl(x) and __builtin_clzll(x). 
